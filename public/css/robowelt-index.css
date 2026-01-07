@@ -1,0 +1,326 @@
+html,
+body {
+    scroll-behavior: smooth;
+}
+
+/* Soft grain */
+.grain:before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.08'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+    opacity: .25;
+}
+
+/* Simple fade-in */
+.reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: all .7s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: none;
+}
+
+.brand-track {
+    animation: brandScroll 28s linear infinite;
+    width: max-content;
+}
+
+@keyframes brandScroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.brand-track:hover {
+    animation-play-state: paused;
+}
+
+.rw-glass {
+    background: rgba(33, 82, 145, 0.08);
+    /* subtle blue tint */
+    border: 1px solid rgba(33, 82, 145, 0.18);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow:
+        0 8px 30px rgba(2, 6, 23, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.rw-glass-strong {
+    background: rgba(33, 82, 145, 0.12);
+    /* slightly stronger */
+    border: 1px solid rgba(236, 148, 38, 0.22);
+    /* amber accent */
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow:
+        0 18px 60px rgba(2, 6, 23, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.rw-chip {
+    background: rgba(236, 148, 38, 0.12);
+    /* amber hint */
+    border: 1px solid rgba(236, 148, 38, 0.28);
+}
+
+.rw-glass:hover,
+.rw-glass-strong:hover {
+    transform: translateY(-2px);
+    transition: all .25s ease;
+}
+
+/* ===== Real Glassmorphism ===== */
+.rw-glass {
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow:
+        0 18px 60px rgba(2, 6, 23, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.20);
+}
+
+.rw-glass-soft {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow:
+        0 12px 40px rgba(2, 6, 23, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+.rw-glass-dark {
+    background: rgba(2, 6, 23, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow:
+        0 18px 70px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.10);
+}
+
+/* Soft color blobs behind cards (brand blue + amber) */
+.rw-blob {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(40px);
+    opacity: .55;
+    pointer-events: none;
+    transform: translateZ(0);
+}
+
+.rw-blob-blue {
+    background: rgba(33, 82, 145, 0.75);
+}
+
+.rw-blob-amber {
+    background: rgba(236, 148, 38, 0.70);
+}
+
+/* Premium hover */
+.rw-lift {
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.rw-lift:hover {
+    transform: translateY(-3px);
+}
+
+.rw-glass-stack {
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow:
+        0 28px 90px rgba(2, 6, 23, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.20);
+}
+
+/* Extra blur for HERO right card */
+.rw-glass-hero {
+    background: rgba(26, 25, 25, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    box-shadow:
+        0 28px 90px rgba(2, 6, 23, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.26);
+}
+
+/* ===== Glass Cards (Logo Colors) ===== */
+
+.glass-blue {
+    background: rgba(37, 99, 235, 0.18);
+    /* ↑ from 0.12 */
+    border: 1px solid rgba(37, 99, 235, 0.35);
+    /* stronger edge */
+    backdrop-filter: blur(26px);
+    -webkit-backdrop-filter: blur(26px);
+    box-shadow:
+        0 26px 70px rgba(37, 99, 235, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.32);
+}
+
+
+.glass-amber {
+    background: rgba(245, 158, 11, 0.20);
+    /* ↑ from 0.14 */
+    border: 1px solid rgba(245, 158, 11, 0.38);
+    backdrop-filter: blur(26px);
+    -webkit-backdrop-filter: blur(26px);
+    box-shadow:
+        0 26px 70px rgba(245, 158, 11, 0.30),
+        inset 0 1px 0 rgba(255, 255, 255, 0.32);
+}
+
+/* subtle hover polish */
+.glass-blue:hover,
+.glass-amber:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 34px 90px rgba(0, 0, 0, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.40);
+}
+
+/* Small glass cards – subtle but visible */
+
+.glass-blue-soft {
+    background: rgba(37, 99, 235, 0.26);
+    /* more blue */
+    border: 1px solid rgba(37, 99, 235, 0.45);
+    /* stronger edge */
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    box-shadow:
+        0 22px 55px rgba(37, 99, 235, 0.22),
+        /* blue glow */
+        0 14px 40px rgba(0, 0, 0, 0.10),
+        /* depth */
+        inset 0 1px 0 rgba(255, 255, 255, 0.40);
+    /* frost highlight */
+}
+
+.glass-amber-soft {
+    background: rgba(245, 158, 11, 0.28);
+    /* more amber */
+    border: 1px solid rgba(245, 158, 11, 0.48);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    box-shadow:
+        0 22px 55px rgba(245, 158, 11, 0.24),
+        /* amber glow */
+        0 14px 40px rgba(0, 0, 0, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.40);
+}
+
+.glass-blue-soft:hover,
+.glass-amber-soft:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 30px 75px rgba(0, 0, 0, 0.14),
+        inset 0 1px 0 rgba(255, 255, 255, 0.50);
+    transition: all .35s ease;
+}
+
+/* Strong glass amber */
+.rw-glass-amber {
+    background: linear-gradient(135deg,
+            rgba(245, 158, 11, 0.35),
+            rgba(251, 191, 36, 0.25));
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(245, 158, 11, 0.45);
+    box-shadow:
+        0 20px 40px rgba(245, 158, 11, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+/* hover lift */
+.rw-lift:hover {
+    transform: translateY(-6px);
+    box-shadow:
+        0 30px 60px rgba(245, 158, 11, 0.35);
+}
+
+/* Card typography polish */
+.card p {
+    line-height: 1.7;
+}
+
+.card h3 {
+    letter-spacing: -0.015em;
+}
+
+.rw-card {
+    border-radius: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, .18);
+    box-shadow: 0 18px 60px rgba(2, 6, 23, .25);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.rw-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 28px 85px rgba(2, 6, 23, .32);
+}
+
+/* STRONGER GLASS TINTS (visible on both hero + white sections) */
+.rw-card-amber {
+    background: linear-gradient(135deg,
+            rgba(245, 158, 11, .45),
+            rgba(245, 158, 11, .22));
+    border-color: rgba(245, 158, 11, .55);
+}
+
+.rw-card-blue {
+    background: linear-gradient(135deg,
+            rgba(37, 99, 235, .38),
+            rgba(37, 99, 235, .18));
+    border-color: rgba(37, 99, 235, .45);
+}
+
+.rw-dot {
+    height: 10px;
+    width: 10px;
+    border-radius: 999px;
+    background: #0b1220;
+    opacity: .95;
+}
+
+/* Base amber glass card (LIGHTER default) */
+.rw-card-amber {
+    background: linear-gradient(180deg,
+            #fbbf24 0%,
+            /* amber-400 */
+            #f59e0b 100%
+            /* amber-500 */
+        );
+    color: #0f172a;
+    border-radius: 1.5rem;
+    box-shadow:
+        0 20px 50px rgba(245, 158, 11, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+/* Hover = just a touch brighter */
+.rw-card-amber:hover {
+    transform: translateY(-4px);
+    filter: brightness(1.06);
+    box-shadow:
+        0 30px 70px rgba(245, 158, 11, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
