@@ -113,7 +113,7 @@
                     {{-- Director Photo (LEFT) --}}
                     <div class="rw-prevail-director">
                         <div class="rw-prevail-director-card">
-                            <img src="{{ asset('images/directors/prevail-director.jpg') }}"
+                            <img src="{{ asset('images/director01.jpeg') }}"
                                 alt="Director - PRevail Robotics" onerror="this.style.display='none'">
 
                             <div class="rw-prevail-director-fallback">
@@ -126,7 +126,7 @@
                             <div class="rw-prevail-director-overlay"></div>
 
                             <div class="rw-prevail-director-caption">
-                                <div class="rw-prevail-director-kicker">PRevail Robotics</div>
+                                <div class="rw-prevail-director-kicker">RoboWelt Systems</div>
                                 <div class="rw-prevail-director-title">Director</div>
                             </div>
                         </div>
@@ -635,9 +635,9 @@
                     </div>
 
                     <div class="rw-lead-photo">
-                        <img src="{{ asset('images/directors/pandurang.jpg') }}" alt="Pandurang Maske"
+                        <img src="{{ asset('images/director01.jpeg') }}" alt="Pandurang Maske"
                             onerror="this.style.display='none'">
-                        <span class="rw-lead-placeholder">PM</span>
+                        {{-- <span class="rw-lead-placeholder">PM</span> --}}
                     </div>
 
                     <div class="rw-lead-contacts">
