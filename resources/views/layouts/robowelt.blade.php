@@ -19,7 +19,7 @@
     @endphp
 
     <link rel="canonical" href="{{ $canonical }}" />
-    
+
 
     {{-- Open Graph --}}
     <meta property="og:type" content="website" />
@@ -49,7 +49,7 @@
             <div class="flex h-16 items-center justify-between">
 
                 {{-- Logo --}}
-                <a href="{{ url('/robowelt') }}" class="flex items-center gap-3">
+                <a href="{{ route('home') }}" class="flex items-center gap-3">
                     <img src="{{ asset('images/robo-logo.png') }}" alt="RoboWelt Systems Pvt. Ltd."
                         class="h-16 w-auto object-contain" />
                 </a>
@@ -59,25 +59,25 @@
                     class="hidden md:flex items-center gap-8 text-base font-semibold uppercase tracking-wide text-slate-700">
                     @php
                         $navBase = 'relative transition uppercase tracking-wide
-                    after:absolute after:left-0 after:-bottom-1
-                    after:h-[2px] after:bg-amber-500
-                    after:transition-all duration-300';
+                        after:absolute after:left-0 after:-bottom-1
+                        after:h-[2px] after:bg-amber-500
+                        after:transition-all duration-300';
                     @endphp
 
-                    <a href="{{ url('/robowelt') }}"
-                        class="{{ $navBase }} {{ request()->is('robowelt') ? 'text-slate-900 after:w-full' : 'after:w-0 hover:after:w-full' }}">
+                    <a href="{{ route('home') }}"
+                        class="{{ $navBase }} {{ request()->routeIs('home') ? 'text-slate-900 after:w-full' : 'after:w-0 hover:after:w-full' }}">
                         HOME
                     </a>
 
-                    <a href="{{ url('/robowelt/about-us') }}"
-                        class="{{ $navBase }} {{ request()->is('robowelt/about-us') ? 'text-slate-900 after:w-full' : 'after:w-0 hover:after:w-full' }}">
+                    <a href="{{ route('about') }}"
+                        class="{{ $navBase }} {{ request()->routeIs('about') ? 'text-slate-900 after:w-full' : 'after:w-0 hover:after:w-full' }}">
                         ABOUT US
                     </a>
 
                     {{-- SERVICES DROPDOWN (DESKTOP) --}}
                     <div class="relative group">
-                        <a href="{{ url('/robowelt/services') }}"
-                            class="{{ $navBase }} flex items-center gap-1 {{ request()->is('robowelt/services*') ? 'text-slate-900 after:w-full' : 'after:w-0 hover:after:w-full' }}">
+                        <a href="{{ route('services') }}"
+                            class="{{ $navBase }} flex items-center gap-1 {{ request()->routeIs('services*') ? 'text-slate-900 after:w-full' : 'after:w-0 hover:after:w-full' }}">
                             SERVICES
                             <svg class="h-3.5 w-3.5 transition-transform group-hover:rotate-180" fill="none"
                                 stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -94,39 +94,40 @@
                         transition-all duration-300 z-50 divide-y divide-black/5">
 
                             <div class="py-3">
-                                <a href="{{ url('/robowelt/services/plc-programming') }}"
-                                    class="block px-5 py-2 text-sm font-semibold hover:bg-amber-50">PLC Programming</a>
-                                <a href="{{ url('/robowelt/services/robot-programming') }}"
-                                    class="block px-5 py-2 text-sm font-semibold hover:bg-amber-50">Robot
-                                    Programming</a>
-                                <a href="{{ url('/robowelt/services/robot-simulation') }}"
-                                    class="block px-5 py-2 text-sm font-semibold hover:bg-amber-50">Robot Simulation</a>
-                                <a href="{{ url('/robowelt/services/systems-integration') }}"
-                                    class="block px-5 py-2 text-sm font-semibold hover:bg-amber-50">System
-                                    Integration</a>
+                                <a href="{{ route('services.plc') }}"
+                                    class="block px-5 py-2 text-sm font-semibold hover:bg-amber-50">
+                                    PLC Programming
+                                </a>
+                                <a href="{{ route('services.robot') }}"
+                                    class="block px-5 py-2 text-sm font-semibold hover:bg-amber-50">
+                                    Robot Programming
+                                </a>
+                                <a href="{{ route('services.simulation') }}"
+                                    class="block px-5 py-2 text-sm font-semibold hover:bg-amber-50">
+                                    Robot Simulation
+                                </a>
+                                <a href="{{ route('services.integration') }}"
+                                    class="block px-5 py-2 text-sm font-semibold hover:bg-amber-50">
+                                    System Integration
+                                </a>
                             </div>
                         </div>
                     </div>
 
-
-                    <a href="{{ url('/robowelt/careers') }}"
-                        class="{{ $navBase }} {{ request()->is('robowelt/careers') ? 'text-slate-900 after:w-full' : 'after:w-0 hover:after:w-full' }}">
+                    <a href="{{ route('careers') }}"
+                        class="{{ $navBase }} {{ request()->routeIs('careers') ? 'text-slate-900 after:w-full' : 'after:w-0 hover:after:w-full' }}">
                         CAREERS
                     </a>
 
-                    <a href="{{ url('/robowelt/contact') }}"
-                        class="{{ $navBase }} {{ request()->is('robowelt/contact') ? 'text-slate-900 after:w-full' : 'after:w-0 hover:after:w-full' }}">
+                    <a href="{{ route('contact') }}"
+                        class="{{ $navBase }} {{ request()->routeIs('contact') ? 'text-slate-900 after:w-full' : 'after:w-0 hover:after:w-full' }}">
                         CONTACT
                     </a>
                 </nav>
 
                 {{-- CTA (DESKTOP) --}}
                 <div class="hidden md:flex gap-3">
-                    {{-- <a href="{{ url('/robowelt/contact') }}"
-                        class="rounded-2xl border px-5 py-2.5 text-sm font-semibold">
-                        Talk to us
-                    </a> --}}
-                    <a href="{{ url('/robowelt/contact') }}"
+                    <a href="{{ route('contact') }}"
                         class="rounded-2xl bg-amber-500 px-5 py-2.5 text-sm font-semibold">
                         Discuss Project
                     </a>
@@ -157,8 +158,9 @@
                 class="px-4 py-4 space-y-2 text-sm font-semibold uppercase
                    transition-all duration-300 ease-out
                    opacity-0 -translate-y-3">
-                <a data-close-menu href="{{ url('/robowelt') }}" class="block py-2">Home</a>
-                <a data-close-menu href="{{ url('/robowelt/about-us') }}" class="block py-2">About Us</a>
+
+                <a data-close-menu href="{{ route('home') }}" class="block py-2">Home</a>
+                <a data-close-menu href="{{ route('about') }}" class="block py-2">About Us</a>
 
                 {{-- SERVICES (MOBILE) --}}
                 <button id="mobileServicesBtn" type="button" class="flex w-full items-center justify-between py-2"
@@ -171,31 +173,24 @@
                 </button>
 
                 <div id="mobileServices" class="hidden pl-4 space-y-1 text-sm">
-                    {{-- IMPORTANT: add a direct Services page link so it opens on mobile --}}
-                    <a data-close-menu href="{{ url('/robowelt/services') }}" class="block py-1 opacity-80">
-                        Services Overview</a>
+                    <a data-close-menu href="{{ route('services') }}" class="block py-1 opacity-80">
+                        Services Overview
+                    </a>
 
-                    <a data-close-menu href="{{ url('/robowelt/services/plc-programming') }}" class="block py-1">PLC
-                        Programming</a>
-                    <a data-close-menu href="{{ url('/robowelt/services/robot-programming') }}"
-                        class="block py-1">Robot Programming</a>
-                    <a data-close-menu href="{{ url('/robowelt/services/robot-simulation') }}"
-                        class="block py-1">Robot
+                    <a data-close-menu href="{{ route('services.plc') }}" class="block py-1">PLC Programming</a>
+                    <a data-close-menu href="{{ route('services.robot') }}" class="block py-1">Robot Programming</a>
+                    <a data-close-menu href="{{ route('services.simulation') }}" class="block py-1">Robot
                         Simulation</a>
-                    <a data-close-menu href="{{ url('/robowelt/services/systems-integration') }}"
-                        class="block py-1">System Integration</a>
+                    <a data-close-menu href="{{ route('services.integration') }}" class="block py-1">System
+                        Integration</a>
                 </div>
 
-                <a data-close-menu href="{{ url('/robowelt/careers') }}" class="block py-2">Careers</a>
-                <a data-close-menu href="{{ url('/robowelt/contact') }}" class="block py-2">Contact</a>
+                <a data-close-menu href="{{ route('careers') }}" class="block py-2">Careers</a>
+                <a data-close-menu href="{{ route('contact') }}" class="block py-2">Contact</a>
 
                 {{-- Mobile CTA --}}
                 <div class="pt-3 grid grid-cols-1 gap-2">
-                    {{-- <a data-close-menu href="{{ url('/robowelt/contact') }}"
-                        class="rounded-2xl border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-center">
-                        Talk to us
-                    </a> --}}
-                    <a data-close-menu href="{{ url('/robowelt/contact') }}"
+                    <a data-close-menu href="{{ route('contact') }}"
                         class="rounded-2xl bg-amber-500 px-5 py-2.5 text-sm font-semibold text-center">
                         Discuss Project
                     </a>
@@ -203,6 +198,7 @@
             </div>
         </div>
     </header>
+
 
     <main>
         @yield('content')
